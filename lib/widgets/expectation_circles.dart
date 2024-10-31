@@ -41,7 +41,7 @@ class _ExpectationCircleState extends State<ExpectationCircle> {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: isSelected
-              ? AppColors.lilacPurple
+              ? AppColors.primaryColor
               : widget.color ?? Colors.grey[300],
         ),
         child: Center(

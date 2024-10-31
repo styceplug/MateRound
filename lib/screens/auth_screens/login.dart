@@ -1,93 +1,94 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mate_round/controllers/signup_controller.dart';
+import 'package:mate_round/controllers/login_controller.dart';
 import 'package:mate_round/routes/routes.dart';
 import 'package:mate_round/utils/colors.dart';
 import 'package:mate_round/utils/dimensions.dart';
 import 'package:mate_round/widgets/password_text_field.dart';
 import 'package:mate_round/widgets/remember_me_check_box.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class CreateAccount extends StatefulWidget {
-  const CreateAccount({super.key});
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
-  State<CreateAccount> createState() => _CreateAccountState();
+  State<Login> createState() => _LoginState();
 }
 
-class _CreateAccountState extends State<CreateAccount> {
+class _LoginState extends State<Login> {
   bool _isLoading = false;
 
   var emailController = TextEditingController();
-  var phoneNumberController = TextEditingController();
   var passwordController = TextEditingController();
-  var confirmPasswordController = TextEditingController();
   bool remember = false;
 
   void _onRememberMeChanged(bool isChecked) {
     remember = isChecked;
   }
 
-  var signUpController = Get.put(SignUpController());
+  bool visiblePass = false;
+  void viewPassword(){
+    visiblePass = !visiblePass;
+  }
 
-  Future<void> signUpClick() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+  final LoginController loginController = Get.put(LoginController());
 
-    String email = emailController.text.trim();
-    String password = passwordController.text.trim();
-    String confirmPassword = confirmPasswordController.text.trim();
-    String phoneNumber = phoneNumberController.text.trim();
-    String country = prefs.getString('country') ?? "Unknown";
-    String mobileDeviceId = "Unknown";
-    String mobileDevice = "Unknown";
-
-    if (!GetUtils.isEmail(email)) {
-      Get.snackbar("Error", "Invalid email address");
+  void _loginClick() async {
+    if (emailController.text.isEmpty || passwordController.text.isEmpty) {
+      Get.snackbar("Error", "Email and password cannot be empty");
       return;
     }
 
-    if (password.length < 6) {
-      Get.snackbar("Error", "Password must be at least 6 characters long");
-      return;
-    }
-
-    if (password != confirmPassword) {
-      Get.snackbar("Error", "Passwords do not match");
-      return;
-    }
-
-    signUpController.isLoading.value = true;
     setState(() {
       _isLoading = true;
     });
 
-    try {
-      var response = await signUpController.signUp(
-          email, password, phoneNumber, country, mobileDeviceId, mobileDevice);
+    var result = await loginController.login(
+        emailController.text, passwordController.text, remember);
 
-      if (!response['error']) {
-        SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (!result['error']) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
 
-        await prefs.setString('token', response['token']);
-        await prefs.setInt('userId', int.parse(response['userId'].toString()));
-        await prefs.setInt('isPro', 0);
-        await prefs.setInt('proType', 0);
-        await prefs.setBool('remember', remember);
+      await prefs.setBool('remember', remember);
+      await prefs.setBool('isProfileComplete', result['isProfileComplete']);
+
+      bool? expectationsSet = result['isExpectationsSet'];
+
+      if (result['isProfileComplete'] == true) {
+        if (expectationsSet == true) {
+          setState(() {
+            _isLoading = false;
+          });
+          Get.offAllNamed(AppRoutes.getFloatingBar());
+        } else {
+          setState(() {
+            _isLoading = false;
+          });
+          Get.offAllNamed(AppRoutes.getExpectations());
+        }
+      } else {
         setState(() {
           _isLoading = false;
         });
+        Get.offAllNamed(AppRoutes.getCompleteProfile());
+      }
+    } else {
+      setState(() {
+        _isLoading = false;
+      });
+    }
 
-        Get.offAllNamed(AppRoutes.completeProfile);
-      } else {}
-    } catch (e) {
-      setState(() {
-        _isLoading = false;
-      });
-      signUpController.isLoading.value = false;
-    } finally {
-      setState(() {
-        _isLoading = false;
-      });
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  Future<void> openLink(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
     }
   }
 
@@ -97,8 +98,9 @@ class _CreateAccountState extends State<CreateAccount> {
       body: Stack(
         children: [
           Container(
+
             decoration: const BoxDecoration(
-              color: AppColors.backgroundWhite
+              color: AppColors.backgroundWhite,
             ),
           ),
           SingleChildScrollView(
@@ -113,27 +115,25 @@ class _CreateAccountState extends State<CreateAccount> {
                     height: Dimensions.height100*1.5,
                   ),
 
-                  //Create an account Text
+                  //welcome back text
                   Container(
-                    margin: EdgeInsets.only(
-                      top: Dimensions.screenHeight / 62.133,
-                    ),
+                    alignment: Alignment.centerLeft,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Create an account',
+                          'Hi, Welcome Back! 👋',
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: Dimensions.screenHeight / 37.28,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.primaryColor,
+                            color: AppColors.accentColor,
                           ),
                         ),
                         Text(
-                          'Connect with new people today!',
+                          "Hello again, you've been missed!",
                           style: TextStyle(
-                            color: Colors.black87,
+                            color: AppColors.text,
                             fontSize: Dimensions.screenHeight / 58.25,
                           ),
                         ),
@@ -153,55 +153,13 @@ class _CreateAccountState extends State<CreateAccount> {
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         alignLabelWithHint: true,
-                        labelText: 'Input email address',
+                        labelText: 'Input Username',
                         labelStyle: TextStyle(
                           fontSize: Dimensions.font14,
                           fontWeight: FontWeight.w300,
                           color: AppColors.primaryColor,
                         ),
-                        hintText: 'Input Email Address',
-                        hintStyle: TextStyle(
-                          fontSize: Dimensions.font14,
-                          fontWeight: FontWeight.w300,
-                          color: AppColors.text.withOpacity(0.5),
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: Dimensions.width5 / Dimensions.width10,
-                            color: AppColors.primaryColor,
-                          ),
-                          borderRadius: BorderRadius.circular(Dimensions.radius10),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: Dimensions.width5 / Dimensions.width10,
-                            color: AppColors.primaryColor,
-                          ),
-                          borderRadius: BorderRadius.circular(Dimensions.radius10),
-                        ),
-                      ),
-                    ),
-                  ),
-                  // Phone number
-                  Container(
-                    margin: EdgeInsets.only(top: Dimensions.height20),
-                    child: TextField(
-                      controller: phoneNumberController,
-                      style: TextStyle(
-                        fontSize: Dimensions.screenHeight / 62.133,
-                        color: AppColors.text,
-                      ),
-                      cursorColor: AppColors.primaryColor,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        alignLabelWithHint: true,
-                        labelText: 'Enter Phone number',
-                        labelStyle: TextStyle(
-                          fontSize: Dimensions.font14,
-                          fontWeight: FontWeight.w300,
-                          color: AppColors.primaryColor,
-                        ),
-                        hintText: 'Enter Phone number',
+                        hintText: 'Input Login',
                         hintStyle: TextStyle(
                           fontSize: Dimensions.font14,
                           fontWeight: FontWeight.w300,
@@ -228,6 +186,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   Container(
                     margin: EdgeInsets.only(top: Dimensions.height20),
                     child: TextField(
+                      obscureText: visiblePass,
                       controller: passwordController,
                       style: TextStyle(
                         fontSize: Dimensions.screenHeight / 62.133,
@@ -236,14 +195,20 @@ class _CreateAccountState extends State<CreateAccount> {
                       cursorColor: AppColors.primaryColor,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
+                        suffixIcon: InkWell(
+                          onTap: (){
+                            setState(() {
+                            viewPassword();
+                          });},
+                            child: Icon(visiblePass? Icons.visibility_off:Icons.visibility)),
                         alignLabelWithHint: true,
-                        labelText: 'Choose Password',
+                        labelText: 'Input Password',
                         labelStyle: TextStyle(
                           fontSize: Dimensions.font14,
                           fontWeight: FontWeight.w300,
                           color: AppColors.primaryColor,
                         ),
-                        hintText: 'Choose your Password',
+                        hintText: 'Input Password',
                         hintStyle: TextStyle(
                           fontSize: Dimensions.font14,
                           fontWeight: FontWeight.w300,
@@ -266,61 +231,58 @@ class _CreateAccountState extends State<CreateAccount> {
                       ),
                     ),
                   ),
-                  //Confirm Password
-                  Container(
-                    margin: EdgeInsets.only(top: Dimensions.height20),
-                    child: TextField(
-                      controller: confirmPasswordController,
-                      style: TextStyle(
-                        fontSize: Dimensions.screenHeight / 62.133,
-                        color: AppColors.text,
+                  // Remember me and forgot password
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          RememberMeCheckbox(
+                            onChanged: _onRememberMeChanged,
+                          ),
+                          Text(
+                            'Remember Me',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Poppins',
+                              fontSize: Dimensions.screenHeight / 62.133,
+                            ),
+                          ),
+                        ],
                       ),
-                      cursorColor: AppColors.primaryColor,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        alignLabelWithHint: true,
-                        labelText: 'Confirm Password',
-                        labelStyle: TextStyle(
-                          fontSize: Dimensions.font14,
-                          fontWeight: FontWeight.w300,
-                          color: AppColors.primaryColor,
-                        ),
-                        hintText: 'Enter Password Again',
-                        hintStyle: TextStyle(
-                          fontSize: Dimensions.font14,
-                          fontWeight: FontWeight.w300,
-                          color: AppColors.text.withOpacity(0.5),
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: Dimensions.width5 / Dimensions.width10,
-                            color: AppColors.primaryColor,
+                      GestureDetector(
+                        onTap: () async {
+                          const url = 'https://materound.com/auth/forgot';
+                          try {
+                            await openLink(url);
+                          } catch (e) {
+                            print(e);
+                          }
+                        },
+                        child: Text(
+                          'Forgot password?',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Poppins',
+                            fontSize: Dimensions.screenHeight / 62.133,
                           ),
-                          borderRadius: BorderRadius.circular(Dimensions.radius10),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: Dimensions.width5 / Dimensions.width10,
-                            color: AppColors.primaryColor,
-                          ),
-                          borderRadius: BorderRadius.circular(Dimensions.radius10),
                         ),
                       ),
-                    ),
+                    ],
                   ),
-
-                  //Sign up button
+                  //login button
                   GestureDetector(
-                    onTap: signUpClick,
+                    onTap: _loginClick,
                     child: Container(
-                      height: Dimensions.height54,
+                      height: Dimensions.screenHeight / 18.64,
                       width: double.maxFinite,
                       margin: EdgeInsets.only(
-                        top: Dimensions.height20,
+                        top: Dimensions.screenHeight / 93.2,
                       ),
                       decoration: BoxDecoration(
                         color: AppColors.orangeBtn,
-                        borderRadius: BorderRadius.circular(Dimensions.radius20),
+                        borderRadius: BorderRadius.circular(
+                            Dimensions.screenHeight / 62.133),
                       ),
                       child: Center(
                         child: _isLoading
@@ -328,11 +290,11 @@ class _CreateAccountState extends State<CreateAccount> {
                                 color: Colors.white,
                               )
                             : Text(
-                                'Create Account today',
+                                'Login',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: Dimensions.screenHeight / 51.778,
-                                  fontWeight: FontWeight.w500,
+                                  fontSize: Dimensions.font18,
+                                  fontWeight: FontWeight.w600,
                                   fontFamily: 'Poppins',
                                 ),
                               ),
@@ -344,13 +306,13 @@ class _CreateAccountState extends State<CreateAccount> {
             ),
           ),
           Positioned(
-            top: Dimensions.screenHeight / 1.1,
+            top: Dimensions.screenHeight / 1.134,
             left: 0,
             right: 0,
             child: Center(
               child: GestureDetector(
                 onTap: () {
-                  Get.offNamed(AppRoutes.getLogin());
+                  Get.offNamed(AppRoutes.getCreateAccount());
                 },
                 child: SizedBox(
                   width: Dimensions.screenWidth / 1.229,
@@ -360,17 +322,17 @@ class _CreateAccountState extends State<CreateAccount> {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: 'Already have an account? ',
+                            text: 'Don\'t have an account? ',
                             style: TextStyle(
                               color: AppColors.primaryColor,
-                              fontSize: Dimensions.screenHeight / 51.778,
+                              fontSize: Dimensions.font16,
                             ),
                           ),
                           TextSpan(
-                            text: 'Log in',
+                            text: 'Sign Up',
                             style: TextStyle(
                               color: AppColors.primaryColor,
-                              fontSize: Dimensions.screenHeight / 51.778,
+                              fontSize: Dimensions.font16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

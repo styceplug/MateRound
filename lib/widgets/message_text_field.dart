@@ -45,7 +45,7 @@ class _MessageTextFieldState extends State<MessageTextField> {
             ),
             hintText: 'Send a message',
             filled: true,
-            fillColor: AppColors.greyLowPurple,
+            fillColor: AppColors.primaryColor,
           ),
         ),
       ),

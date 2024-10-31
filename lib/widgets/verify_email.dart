@@ -64,7 +64,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        top: Dimensions.screenHeight / 46.6,
+        top: Dimensions.height70,
         left: Dimensions.screenWidth / 21.5,
         right: Dimensions.screenWidth / 21.5,
       ),
@@ -74,6 +74,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
           Stack(
             alignment: Alignment.centerRight,
             children: [
+              SizedBox(height: Dimensions.height50),
               TextField(
                 controller: widget.otpController,
                 keyboardType: TextInputType.number,
@@ -87,29 +88,24 @@ class _VerifyEmailState extends State<VerifyEmail> {
                   hintStyle: const TextStyle(
                     color: Colors.grey,
                   ),
-                  filled: true,
-                  fillColor: Colors.white,
+
                   contentPadding: EdgeInsets.symmetric(
                     vertical: Dimensions.screenHeight / 62.133,
                     horizontal: Dimensions.screenWidth / 21.5,
                   ),
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
-                      width: Dimensions.screenWidth / 430,
-                      color: AppColors.mainPurple,
+                      width: Dimensions.width5 / Dimensions.width10,
+                      color: AppColors.primaryColor,
                     ),
-                    borderRadius: BorderRadius.circular(
-                      Dimensions.screenHeight / 62.133,
-                    ),
+                    borderRadius: BorderRadius.circular(Dimensions.radius10),
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      width: Dimensions.screenWidth / 286.667,
-                      color: AppColors.mainPurple,
+                      width: Dimensions.width5 / Dimensions.width10,
+                      color: AppColors.primaryColor,
                     ),
-                    borderRadius: BorderRadius.circular(
-                      Dimensions.screenHeight / 62.133,
-                    ),
+                    borderRadius: BorderRadius.circular(Dimensions.radius10),
                   ),
                 ),
               ),
@@ -151,7 +147,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
           ),
           Container(
             margin: EdgeInsets.only(
-              top: Dimensions.screenHeight / 46.6,
+              top: Dimensions.height30,
               left: Dimensions.screenWidth / 21.5,
               right: Dimensions.screenWidth / 21.5,
             ),
@@ -166,7 +162,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(10),
-                      color: AppColors.lilacPurple,
+                      color: AppColors.primaryColor,
                     ),
                     child: const Center(
                       child: Text(

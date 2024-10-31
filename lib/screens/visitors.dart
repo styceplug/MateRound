@@ -54,7 +54,7 @@ class _VisitorsState extends State<Visitors> {
           // background
           Container(
             decoration: const BoxDecoration(
-              color: AppColors.ppWhite,
+              color: AppColors.primaryColor,
             ),
           ),
           // content
@@ -182,12 +182,12 @@ class _VisitorsState extends State<Visitors> {
                                 height: Dimensions.screenHeight / 26.629 * 1.5,
                                 width: Dimensions.screenWidth / 3.583 * 2,
                                 decoration: BoxDecoration(
-                                  color: AppColors.deepBlue,
+                                  color: AppColors.primaryColor,
                                   borderRadius: BorderRadius.circular(
                                       Dimensions.screenHeight / 12.4267),
                                   boxShadow: const [
                                     BoxShadow(
-                                      color: AppColors.greyLowPurple,
+                                      color: AppColors.primaryColor,
                                       spreadRadius: 0.5,
                                       blurRadius: 12,
                                     ),
@@ -278,7 +278,7 @@ class _VisitorsState extends State<Visitors> {
                                                     Dimensions.screenWidth / 8.6,
                                                 decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
-                                                    color: AppColors.lilacPurple,
+                                                    color: AppColors.primaryColor,
                                                     image: DecorationImage(
                                                       image: NetworkImage(
                                                           'https://materound.com/auth/${users[index]['avater']}',),

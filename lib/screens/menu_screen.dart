@@ -79,7 +79,7 @@ class _MenuScreenState extends State<MenuScreen> {
         children: [
           Container(
             decoration: const BoxDecoration(
-              color: AppColors.ppWhite,
+              color: AppColors.primaryColor,
             ),
           ),
           SizedBox(
@@ -116,7 +116,7 @@ class _MenuScreenState extends State<MenuScreen> {
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
-                                color: AppColors.greyLowPurple,
+                                color: AppColors.primaryColor,
                                 spreadRadius: 0.5,
                                 blurRadius: 30,
                               ),
@@ -201,12 +201,12 @@ class _MenuScreenState extends State<MenuScreen> {
                                 width: Dimensions.screenWidth / 3.8,
                                 padding: const EdgeInsets.all(1),
                                 decoration: BoxDecoration(
-                                  color: AppColors.mainPurple,
+                                  color: AppColors.primaryColor,
                                   borderRadius: BorderRadius.circular(
                                       Dimensions.screenHeight / 100),
                                   boxShadow: const [
                                     BoxShadow(
-                                      color: AppColors.greyLowPurple,
+                                      color: AppColors.primaryColor,
                                       spreadRadius: 0.5,
                                       blurRadius: 12,
                                     ),

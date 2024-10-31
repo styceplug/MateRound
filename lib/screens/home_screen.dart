@@ -37,7 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
     findMatchesController.fetchData();
     preloadImages();
     _showWarningDialogIfNeeded();
-
   }
 
   Future<void> _showWarningDialogIfNeeded() async {
@@ -50,28 +49,29 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text("Notice"),
-            content: Text("There is no tolerance for objectionable content or abusive users. if you continue, it means you agree to our terms and conditions at materound.com."),
+            content: Text(
+                "There is no tolerance for objectionable content or abusive users. if you continue, it means you agree to our terms and conditions at materound.com."),
             actions: <Widget>[
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   Get.back();
                   // Navigator.of(context).pop();
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: AppColors.mainPurple,
+                    color: AppColors.primaryColor,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   padding: const EdgeInsets.all(8),
-                  margin: const EdgeInsets.symmetric(
-                      horizontal: 40,
-                      vertical: 10
-                  ),
+                  // margin:
+                      // const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
                   child: const Center(
-                    child: Text('Agree',
+                    child: Text(
+                      'Agree',
                       style: TextStyle(
                         color: Colors.white,
-                      ),),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -143,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int index = 0;
 
   void increaseIndex() {
-    // if (index >= 0 && index < findMatchesController.data.length) {
+
     setState(() {
       index++;
     });
@@ -245,93 +245,60 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundWhite,
       body: GetBuilder<FindMatchesController>(
         builder: (FindMatchesController controller) {
           return Stack(
             children: [
-              // background
-              Container(
-                decoration: const BoxDecoration(
-                  color: AppColors.ppWhite,
-                ),
-              ),
               // content
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //top space
-                  Container(
-                    height: Dimensions.screenHeight / 9.32,
-                  ),
+                  SizedBox(height: Dimensions.height70),
                   //find match and menu
                   Container(
-                    margin: EdgeInsets.only(
-                      left: Dimensions.screenWidth / 21.5,
-                      right: Dimensions.screenWidth / 21.5,
-                    ),
+                    margin: EdgeInsets.symmetric(horizontal: Dimensions.width20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         //find match
-                        Row(
-                          children: [
-                            GestureDetector(
-                              onTap: (){
-                                Get.toNamed(AppRoutes.getMyProfileScreen());
-                              },
-                              child: Container(
-                                width: Dimensions.screenHeight / 14.2,
-                                height: Dimensions.screenWidth / 6.55,
-                                padding: const EdgeInsets.all(1),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: AppColors.normalGreen,
-                                    width: 3,
-                                  ),
-                                  // image: DecorationImage(image: NetworkImage(getImageUrl()))
-                                ),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                      image: NetworkImage(
-                                        'https://materound.com/auth/$displayPicture',
-                                      ),
-                                    ),
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(AppRoutes.getMyProfileScreen());
+                          },
+                          child: Container(
+                            width: Dimensions.width10*4,
+                            height: Dimensions.height10*4,
+                            padding: const EdgeInsets.all(1),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: AppColors.primaryColor,
+                                width: 3,
+                              ),
+                              // image: DecorationImage(image: NetworkImage(getImageUrl()))
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    'https://materound.com/auth/$displayPicture',
                                   ),
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              width: Dimensions.screenWidth / 39.3,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Hello  $firstName', style: const TextStyle(
-                                  color: Colors.black,
-                                ),),
-                                const Text(
-                                  'Let\'s find a match',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
+                          ),
                         ),
-                        // Text(
-                        //   'Find Match',
-                        //   style: TextStyle(
-                        //     fontWeight: FontWeight.bold,
-                        //     fontSize: Dimensions.screenHeight / 31.067,
-                        //     fontFamily: 'Poppins',
-                        //   ),
-                        // ),
-                        //four dots
+                        Text(
+                          'For You',
+                          style: TextStyle(
+                            fontSize: Dimensions.font18,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'Poppins',
+                          ),
+                        ),
                         GestureDetector(
                           onTap: () {
                             Get.toNamed(AppRoutes.getMenuScreen());
@@ -375,7 +342,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   //sized box
                   SizedBox(
-                    height: Dimensions.screenHeight / 37.28,
+                    height: Dimensions.height20,
                   ),
                   //long horizontal line
                   Container(
@@ -386,459 +353,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   if (_isLoading)
-                    const  LinearProgressIndicator(
-                        color: AppColors.mainPurple,
-                        backgroundColor: AppColors.lilacPurple,
-                      ),
-                  //sized box
-                  SizedBox(
-                    height: Dimensions.screenHeight / 37.28,
-                  ),
-                  /* //location
-                  Container(
-                    margin: EdgeInsets.only(
-                      left: Dimensions.screenWidth / 14.333,
+                    const LinearProgressIndicator(
+                      color: AppColors.primaryColor,
+                      backgroundColor: AppColors.primaryColor,
                     ),
-                    child: Text(
-                      'Location',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: Dimensions.screenHeight / 62.133,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                  ),
                   //sized box
                   SizedBox(
-                    height: Dimensions.screenHeight / 62.133,
+                    height: Dimensions.height10,
                   ),
-                  //location
-                  Obx(() {
-                    if (findMatchesController.data.isEmpty) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else if (index == findMatchesController.data.length) {
-                      return const SizedBox.shrink();
-                    } else {
-                      // location
-                      return Container(
-                        margin: EdgeInsets.only(
-                          left: Dimensions.screenWidth / 14.333,
-                        ),
-                        child: Text(
-                          '     ${getCountry()}    ',
-                          style: TextStyle(
-                            fontSize: Dimensions.screenHeight / 29.125,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      );
-                    }
-                  }),
-                  //sized box
-                  SizedBox(
-                    height: Dimensions.screenHeight / 18.64,
-                  ),
-                  // main container
-                  if (controller.isLoading)
-                    const Center(
-                      child: CircularProgressIndicator(),
-                    )
-                  else
-                    Obx(() {
-                      if (findMatchesController.data.isEmpty) {
-                        return Center(
-                          child: Column(
-                            children: [
-                              // no more matches image
-                              Container(
-                                height: Dimensions.screenHeight / 3.389,
-                                width: Dimensions.screenWidth / 1.564,
-                                decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      'assets/images/empty_icon.png',
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: Dimensions.screenHeight / 93.2 * 2,
-                              ),
-                              // no more matches text
-                              Text(
-                                'No more Matches',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: Dimensions.screenHeight / 37.28,
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      } else if (index == findMatchesController.data.length ||
-                          findMatchesController.data == []) {
-                        // no more matches
-                        return Center(
-                          child: Column(
-                            children: [
-                              // no more matches image
-                              Container(
-                                height: Dimensions.screenHeight / 3.389,
-                                width: Dimensions.screenWidth / 1.564,
-                                decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      'assets/images/empty_icon.png',
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: Dimensions.screenHeight / 93.2 * 2,
-                              ),
-                              // no more matches text
-                              Text(
-                                'No more Matches',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: Dimensions.screenHeight / 37.28,
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      } else {
-                        // main container
-                        return Container(
-                          height: Dimensions.screenHeight / 1.864,
-                          width: double.maxFinite,
-                          margin: EdgeInsets.only(
-                            left: Dimensions.screenWidth / 21.5,
-                            right: Dimensions.screenWidth / 21.5,
-                          ),
-                          //main stack
-                          child: Stack(
-                            children: [
-                              Center(
-                                //images stack
-                                child: Stack(
-                                  children: [
-                                    // right side transform
-                                    Transform.rotate(
-                                      angle: 0.25,
-                                      child: Container(
-                                        height: Dimensions.screenHeight / 2.663,
-                                        width: Dimensions.screenWidth / 1.564,
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey[300],
-                                          borderRadius: BorderRadius.circular(
-                                            Dimensions.screenHeight / 46.6,
-                                          ),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color:
-                                                  Colors.grey.withOpacity(0.3),
-                                              spreadRadius: 5,
-                                              blurRadius: 5,
-                                              offset: const Offset(0, 2),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    // left side transform
-                                    Transform.rotate(
-                                      angle: -0.25,
-                                      child: Container(
-                                        height: Dimensions.screenHeight / 2.663,
-                                        width: Dimensions.screenWidth / 1.564,
-                                        decoration: BoxDecoration(
-                                          color: Colors.blueGrey[200],
-                                          borderRadius: BorderRadius.circular(
-                                            Dimensions.screenHeight / 46.6,
-                                          ),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color:
-                                                  Colors.grey.withOpacity(0.3),
-                                              spreadRadius: 5,
-                                              blurRadius: 5,
-                                              offset: const Offset(0, 2),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    // fore ground Stack
-                                    Stack(
-                                      children: [
-                                        //fore ground image
-                                        Container(
-                                          height:
-                                              Dimensions.screenHeight / 2.663,
-                                          width: Dimensions.screenWidth / 1.564,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(
-                                              Dimensions.screenHeight / 46.6,
-                                            ),
-                                            border: Border.all(
-                                              width: 1,
-                                              color: Colors.white,
-                                            ),
-                                            image: DecorationImage(
-                                              image:
-                                                  NetworkImage(getImageUrl()),
-                                              fit: BoxFit.cover,
-                                            ),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.grey
-                                                    .withOpacity(0.75),
-                                                spreadRadius: 7,
-                                                blurRadius: 9,
-                                                offset: const Offset(2, 5),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        // those texts
-                                        Positioned(
-                                          top: Dimensions.screenHeight / 3.728,
-                                          child: Container(
-                                            margin: EdgeInsets.only(
-                                              left: Dimensions.screenWidth / 43,
-                                            ),
-                                            height: Dimensions.screenHeight /
-                                                31.067 *
-                                                2,
-                                            child: ClipRect(
-                                              child: BackdropFilter(
-                                                filter: ImageFilter.blur(
-                                                  sigmaX: 5,
-                                                  sigmaY: 5,
-                                                ),
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                      Dimensions.screenHeight /
-                                                          133.143,
-                                                    ),
-                                                    color: AppColors.deepGold
-                                                        .withOpacity(0.1),
-                                                  ),
-                                                  padding: EdgeInsets.symmetric(
-                                                    vertical: Dimensions
-                                                            .screenHeight /
-                                                        116.5,
-                                                    horizontal:
-                                                        Dimensions.screenWidth /
-                                                            53.75,
-                                                  ),
-                                                  child: Column(
-                                                    children: [
-                                                      //name
-                                                      Center(
-                                                        child: Row(
-                                                          children: [
-                                                            // firstname
-                                                            Text(
-                                                              getFirstName(),
-                                                              style: TextStyle(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: Dimensions
-                                                                        .screenHeight /
-                                                                    51.778,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                            ),
-                                                            //sized box
-                                                            SizedBox(
-                                                              width: Dimensions
-                                                                      .screenWidth /
-                                                                  86,
-                                                            ),
-                                                            //last name .
-                                                            Text(
-                                                              '${getLastName()[0]}.',
-                                                              style: TextStyle(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: Dimensions
-                                                                        .screenHeight /
-                                                                    51.778,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      // age
-                                                      Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          // age
-                                                          Text(
-                                                            getAge(),
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: Dimensions
-                                                                      .screenHeight /
-                                                                  62.133,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
-                                                          ),
-                                                          //sized box
-                                                          SizedBox(
-                                                            width: Dimensions
-                                                                    .screenWidth /
-                                                                86,
-                                                          ),
-                                                          //years old.
-                                                          Text(
-                                                            'years old',
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: Dimensions
-                                                                      .screenHeight /
-                                                                  62.133,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              // icons
-                              Positioned(
-                                top: Dimensions.screenHeight / 2.33,
-                                left: Dimensions.screenWidth / 4.095,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    // dislike
-                                    GestureDetector(
-                                      onTap: () async {
-                                        await likeUserController.likeUser(
-                                            false,
-                                            int.parse(findMatchesController
-                                                .data[index]['id']));
-                                        increaseIndex();
-                                      },
-                                      child: Container(
-                                        height: Dimensions.screenHeight / 18.64,
-                                        width: Dimensions.screenWidth / 8.6,
-                                        decoration: const BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white,
-                                        ),
-                                        child: Icon(
-                                          Icons.close,
-                                          color: AppColors.deepGold,
-                                          size:
-                                              Dimensions.screenHeight / 31.067,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: Dimensions.screenWidth / 21.5,
-                                    ),
-                                    // like
-                                    GestureDetector(
-                                      onTap: () async {
-                                        await likeUserController.likeUser(
-                                            true,
-                                            int.parse(findMatchesController
-                                                .data[index]['id']));
-                                        increaseIndex();
-                                      },
-                                      child: Container(
-                                        height: Dimensions.screenHeight / 18.64,
-                                        width: Dimensions.screenWidth / 8.6,
-                                        decoration: const BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          gradient: LinearGradient(
-                                            colors: [
-                                              AppColors.deepGold,
-                                              AppColors.lighterGold
-                                            ],
-                                          ),
-                                        ),
-                                        child: Icon(
-                                          Icons.favorite_outline,
-                                          color: Colors.white,
-                                          size:
-                                              Dimensions.screenHeight / 31.067,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: Dimensions.screenWidth / 21.5,
-                                    ),
-                                    // open profile
-                                    GestureDetector(
-                                      onTap: () {
-                                        Get.toNamed(
-                                            AppRoutes.getProfileDetailScreen(
-                                                findMatchesController
-                                                    .data[index]['id']
-                                                    .toString()));
-                                      },
-                                      child: Container(
-                                        height: Dimensions.screenHeight / 18.64,
-                                        width: Dimensions.screenWidth / 8.6,
-                                        decoration: const BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white,
-                                        ),
-                                        child: Icon(
-                                          Icons.person_outline,
-                                          color: AppColors.deepGold,
-                                          size:
-                                              Dimensions.screenHeight / 31.067,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      }
-                    }),*/
+
                   if (controller.isLoading)
                     const Center(
                       child: CircularProgressIndicator(
-                        color: AppColors.mainPurple,
+                        color: AppColors.primaryColor,
                       ),
                     )
                   else
@@ -910,11 +437,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       } else {}
                       return Expanded(
                         child: Container(
-                          margin: EdgeInsets.symmetric(
+                          /*margin: EdgeInsets.symmetric(
                             horizontal: Dimensions.screenWidth / 39.3,
-                          ),
+                          ),*/
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
+                            // borderRadius: BorderRadius.circular(30),
                             image: DecorationImage(
                               image: NetworkImage(getImageUrl()),
                               fit: BoxFit.cover,
@@ -939,7 +466,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           borderRadius: BorderRadius.circular(
                                             Dimensions.screenHeight / 133.143,
                                           ),
-                                          color: AppColors.greyLowPurple
+                                          color: AppColors.primaryColor
                                               .withOpacity(0.25),
                                         ),
                                         padding: EdgeInsets.symmetric(
@@ -956,8 +483,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                             Row(
                                               children: [
                                                 Container(
-                                                  height: Dimensions.screenHeight / 56.8,
-                                                  width: Dimensions.screenWidth / 26.2,
+                                                  height:
+                                                      Dimensions.screenHeight /
+                                                          56.8,
+                                                  width:
+                                                      Dimensions.screenWidth /
+                                                          26.2,
                                                   decoration:
                                                       const BoxDecoration(
                                                     image: DecorationImage(
@@ -968,7 +499,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  width: Dimensions.screenWidth / 78.6,
+                                                  width:
+                                                      Dimensions.screenWidth /
+                                                          78.6,
                                                 ),
                                                 Text(
                                                   getCountry(),
@@ -1069,7 +602,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         width: Dimensions.screenWidth / 8.6,
                                         decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: AppColors.greyLowPurple2,
+                                          color: AppColors.primaryColor,
                                         ),
                                         child: Icon(
                                           Icons.close,
@@ -1102,14 +635,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         width: Dimensions.screenWidth / 8.6,
                                         decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
-                                          gradient: LinearGradient(
-                                            begin: Alignment.topCenter,
-                                            end: Alignment.bottomCenter,
-                                            colors: [
-                                              AppColors.gradient1,
-                                              AppColors.gradient2,
-                                            ],
-                                          ),
+                                          color: AppColors.primaryColor,
                                         ),
                                         child: Icon(
                                           Icons.favorite_outline,
@@ -1136,7 +662,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         width: Dimensions.screenWidth / 8.6,
                                         decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: AppColors.greyLowPurple2,
+                                          color: AppColors.primaryColor,
                                         ),
                                         child: Icon(
                                           Icons.person_outline,
@@ -1154,9 +680,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       );
                     }),
-                  SizedBox(
+                  /*SizedBox(
                     height: Dimensions.screenHeight / 17.04,
-                  ),
+                  ),*/
                 ],
               ),
             ],

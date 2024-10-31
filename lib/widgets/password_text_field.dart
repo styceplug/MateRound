@@ -34,7 +34,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         fontSize: Dimensions.screenHeight / 58.25,
         color: Colors.black,
       ),
-      cursorColor: AppColors.mainPurple,
+      cursorColor: AppColors.primaryColor,
       obscureText: _obscureText,
       decoration: InputDecoration(
         filled: true,
@@ -50,21 +50,21 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         border: OutlineInputBorder(
           borderSide: BorderSide(
             width: Dimensions.screenWidth / 430,
-            color: AppColors.mainPurple,
+            color: AppColors.primaryColor,
           ),
           borderRadius: BorderRadius.circular(15),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             width: Dimensions.screenWidth / 286.667,
-            color: AppColors.mainPurple,
+            color: AppColors.primaryColor,
           ),
           borderRadius: BorderRadius.circular(Dimensions.screenHeight / 62.133),
         ),
         suffixIcon: IconButton(
           icon: Icon(
             _obscureText ? Icons.visibility : Icons.visibility_off,
-            color: AppColors.mainPurple,
+            color: AppColors.primaryColor,
           ),
           onPressed: _toggleVisibility,
         ),

@@ -16,14 +16,7 @@ class JoinNow extends StatelessWidget {
             width: double.infinity,
             height: double.infinity,
             decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  AppColors.lightGreen,
-                  AppColors.darkGreen,
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
+
             ),
           ),
           Positioned(
@@ -183,9 +176,9 @@ class JoinNow extends StatelessWidget {
                     child: Text(
                       'Join now',
                       style: TextStyle(
-                        color: AppColors.darkGreen,
+                        color: AppColors.primaryColor,
                         fontSize: Dimensions.screenHeight / 46.6,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),

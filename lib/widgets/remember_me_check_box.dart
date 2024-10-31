@@ -28,7 +28,7 @@ class _RememberMeCheckboxState extends State<RememberMeCheckbox> {
       onChanged: (bool? value) {
         _onChanged(value!);
       },
-      checkColor: AppColors.mainPurple,
+      checkColor: AppColors.primaryColor,
       activeColor: Colors.white,
     );
   }

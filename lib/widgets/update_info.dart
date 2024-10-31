@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mate_round/utils/colors.dart';
@@ -35,184 +32,190 @@ class UpdateInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // first and last name
-          Container(
-            margin: EdgeInsets.only(
-              top: 0,
-              left: Dimensions.screenWidth / 21.5,
-              right: Dimensions.screenWidth / 21.5,
-            ),
-            child: Row(
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: Dimensions.width20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // first and last name
+            Row(
               children: [
                 Expanded(
                   child: TextField(
                     controller: firstNameController,
+                    style: TextStyle(
+                      fontSize: Dimensions.screenHeight / 62.133,
+                      color: AppColors.text,
+                    ),
+                    cursorColor: AppColors.primaryColor,
+                    keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                      hintText: 'First Name',
-                      hintStyle: const TextStyle(
-                        color: Colors.grey,
+                      alignLabelWithHint: true,
+                      labelText: 'First Name',
+                      labelStyle: TextStyle(
+                        fontSize: Dimensions.font14,
+                        fontWeight: FontWeight.w300,
+                        color: AppColors.primaryColor,
                       ),
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: Dimensions.screenHeight / 62.133,
-                        horizontal: Dimensions.screenWidth / 21.5,
+                      hintText: 'Input First Name',
+                      hintStyle: TextStyle(
+                        fontSize: Dimensions.font14,
+                        fontWeight: FontWeight.w300,
+                        color: AppColors.text.withOpacity(0.5),
                       ),
                       border: OutlineInputBorder(
                         borderSide: BorderSide(
-                          width: Dimensions.screenWidth / 430,
-                          color: AppColors.mainPurple,
+                          width: Dimensions.width5 / Dimensions.width10,
+                          color: AppColors.primaryColor,
                         ),
-                        borderRadius: BorderRadius.circular(
-                          Dimensions.screenHeight / 62.133,
-                        ),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius10),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          width: Dimensions.screenWidth / 286.667,
-                          color: AppColors.mainPurple,
+                          width: Dimensions.width5 / Dimensions.width10,
+                          color: AppColors.primaryColor,
                         ),
-                        borderRadius: BorderRadius.circular(
-                          Dimensions.screenHeight / 62.133,
-                        ),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius10),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(width: Dimensions.screenWidth / 21.5),
+                SizedBox(width: Dimensions.width20),
                 Expanded(
                   child: TextField(
                     controller: lastNameController,
+                    style: TextStyle(
+                      fontSize: Dimensions.screenHeight / 62.133,
+                      color: AppColors.text,
+                    ),
+                    cursorColor: AppColors.primaryColor,
+                    keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                      hintText: 'Last Name',
-                      hintStyle: const TextStyle(
-                        color: Colors.grey,
+                      alignLabelWithHint: true,
+                      labelText: 'Last Name',
+                      labelStyle: TextStyle(
+                        fontSize: Dimensions.font14,
+                        fontWeight: FontWeight.w300,
+                        color: AppColors.primaryColor,
                       ),
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: Dimensions.screenHeight / 62.133,
-                        horizontal: Dimensions.screenWidth / 21.5,
+                      hintText: 'Input Last Name',
+                      hintStyle: TextStyle(
+                        fontSize: Dimensions.font14,
+                        fontWeight: FontWeight.w300,
+                        color: AppColors.text.withOpacity(0.5),
                       ),
                       border: OutlineInputBorder(
                         borderSide: BorderSide(
-                          width: Dimensions.screenWidth / 430,
-                          color: AppColors.mainPurple,
+                          width: Dimensions.width5 / Dimensions.width10,
+                          color: AppColors.primaryColor,
                         ),
-                        borderRadius: BorderRadius.circular(
-                          Dimensions.screenHeight / 62.133,
-                        ),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius10),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          width: Dimensions.screenWidth / 286.667,
-                          color: AppColors.mainPurple,
+                          width: Dimensions.width5 / Dimensions.width10,
+                          color: AppColors.primaryColor,
                         ),
-                        borderRadius: BorderRadius.circular(
-                          Dimensions.screenHeight / 62.133,
-                        ),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius10),
                       ),
                     ),
                   ),
                 ),
               ],
             ),
-          ),
-          // username
-          Container(
-            margin: EdgeInsets.only(
-              top: Dimensions.screenHeight / 46.6,
-              left: Dimensions.screenWidth / 21.5,
-              right: Dimensions.screenWidth / 21.5,
-            ),
-            child: TextField(
+            // username
+            SizedBox(height: Dimensions.height20),
+            TextField(
               controller: usernameController,
+              style: TextStyle(
+                fontSize: Dimensions.screenHeight / 62.133,
+                color: AppColors.text,
+              ),
+              cursorColor: AppColors.primaryColor,
+              keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                hintText: 'Username',
-                hintStyle: const TextStyle(
-                  color: Colors.grey,
+                alignLabelWithHint: true,
+                labelText: 'Select Username',
+                labelStyle: TextStyle(
+                  fontSize: Dimensions.font14,
+                  fontWeight: FontWeight.w300,
+                  color: AppColors.primaryColor,
                 ),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: Dimensions.screenHeight / 62.133,
-                  horizontal: Dimensions.screenWidth / 21.5,
+                hintText: 'Input Username',
+                hintStyle: TextStyle(
+                  fontSize: Dimensions.font14,
+                  fontWeight: FontWeight.w300,
+                  color: AppColors.text.withOpacity(0.5),
                 ),
                 border: OutlineInputBorder(
                   borderSide: BorderSide(
-                    width: Dimensions.screenWidth / 430,
-                    color: AppColors.mainPurple,
+                    width: Dimensions.width5 / Dimensions.width10,
+                    color: AppColors.primaryColor,
                   ),
-                  borderRadius: BorderRadius.circular(
-                    Dimensions.screenHeight / 62.133,
-                  ),
+                  borderRadius: BorderRadius.circular(Dimensions.radius10),
                 ),
-                focusedBorder: OutlineInputBorder(
+                enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    width: Dimensions.screenWidth / 286.667,
-                    color: AppColors.mainPurple,
+                    width: Dimensions.width5 / Dimensions.width10,
+                    color: AppColors.primaryColor,
                   ),
-                  borderRadius: BorderRadius.circular(
-                    Dimensions.screenHeight / 62.133,
-                  ),
+                  borderRadius: BorderRadius.circular(Dimensions.radius10),
                 ),
               ),
             ),
-          ),
-          // username instruction
-          Container(
-            margin: EdgeInsets.only(
-              left: Dimensions.screenWidth / 15,
-              right: Dimensions.screenWidth / 21.5,
-            ),
-            child: const Text(
+            Text(
               'Username cannot contain spaces.',
               style: TextStyle(
-                color: Colors.grey,
+                color: Colors.black.withOpacity(0.3),
+                fontSize: Dimensions.font13,
               ),
             ),
-          ),
-          // height and hair color
-          Container(
-            margin: EdgeInsets.only(
-              top: Dimensions.screenHeight / 46.6,
-              left: Dimensions.screenWidth / 21.5,
-              right: Dimensions.screenWidth / 21.5,
-            ),
-            child: Row(
+            // height and hair color
+            SizedBox(height: Dimensions.height10),
+            Row(
               children: [
                 Expanded(
                   child: DropdownButtonFormField<String>(
+                    isExpanded: false,
+                    isDense: true,
                     decoration: InputDecoration(
-                      hintText: 'Height',
-                      hintStyle: const TextStyle(
-                        color: Colors.grey,
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
                       contentPadding: EdgeInsets.symmetric(
-                        vertical: Dimensions.screenHeight / 62.133,
-                        horizontal: Dimensions.screenWidth / 21.5,
+                          horizontal: Dimensions.width20,
+                          vertical: Dimensions.height10),
+                      hintText: '',
+                      hintStyle: TextStyle(
+                        fontSize: Dimensions.font16,
+                        fontWeight: FontWeight.w300,
+                        color: AppColors.text.withOpacity(0.5),
                       ),
                       border: OutlineInputBorder(
                         borderSide: BorderSide(
-                          width: Dimensions.screenWidth / 430,
-                          color: AppColors.mainPurple,
+                          width: Dimensions.width5 / Dimensions.width10,
+                          color: AppColors.primaryColor,
                         ),
-                        borderRadius: BorderRadius.circular(
-                          Dimensions.screenHeight / 62.133,
-                        ),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius10),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          width: Dimensions.screenWidth / 286.667,
-                          color: AppColors.mainPurple,
+                          width: Dimensions.width5 / Dimensions.width10,
+                          color: AppColors.primaryColor,
                         ),
-                        borderRadius: BorderRadius.circular(
-                          Dimensions.screenHeight / 62.133,
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius10),
+                      ),
+                    ),
+                    hint: Center(
+                      child: Text(
+                        'Height',
+                        style: TextStyle(
+                          fontSize: Dimensions.font16,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.black.withOpacity(0.4),
                         ),
                       ),
                     ),
@@ -231,36 +234,45 @@ class UpdateInfo extends StatelessWidget {
                     onChanged: onHeightChanged,
                   ),
                 ),
-                SizedBox(width: Dimensions.screenWidth / 21.5),
+                SizedBox(width: Dimensions.width20),
                 Expanded(
                   child: DropdownButtonFormField<String>(
+                    isExpanded: false,
+                    isDense: true,
                     decoration: InputDecoration(
-                      hintText: 'Hair Color',
-                      hintStyle: const TextStyle(
-                        color: Colors.grey,
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
                       contentPadding: EdgeInsets.symmetric(
-                        vertical: Dimensions.screenHeight / 62.133,
-                        horizontal: Dimensions.screenWidth / 21.5,
+                          horizontal: Dimensions.width20,
+                          vertical: Dimensions.height10),
+                      hintText: '',
+                      hintStyle: TextStyle(
+                        fontSize: Dimensions.font16,
+                        fontWeight: FontWeight.w300,
+                        color: AppColors.text.withOpacity(0.5),
                       ),
                       border: OutlineInputBorder(
                         borderSide: BorderSide(
-                          width: Dimensions.screenWidth / 430,
-                          color: AppColors.mainPurple,
+                          width: Dimensions.width5 / Dimensions.width10,
+                          color: AppColors.primaryColor,
                         ),
-                        borderRadius: BorderRadius.circular(
-                          Dimensions.screenHeight / 62.133,
-                        ),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius10),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          width: Dimensions.screenWidth / 286.667,
-                          color: AppColors.mainPurple,
+                          width: Dimensions.width5 / Dimensions.width10,
+                          color: AppColors.primaryColor,
                         ),
-                        borderRadius: BorderRadius.circular(
-                          Dimensions.screenHeight / 62.133,
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius10),
+                      ),
+                    ),
+                    hint: Center(
+                      child: Text(
+                        'Hair Color',
+                        style: TextStyle(
+                          fontSize: Dimensions.font16,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.black.withOpacity(0.4),
                         ),
                       ),
                     ),
@@ -282,53 +294,57 @@ class UpdateInfo extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          // gender and birthday
-          Container(
-            margin: EdgeInsets.only(
-              top: Dimensions.screenHeight / 46.6,
-              left: Dimensions.screenWidth / 21.5,
-              right: Dimensions.screenWidth / 21.5,
-            ),
-            child: Row(
+            // gender and birthday
+            SizedBox(height: Dimensions.height10),
+
+            Row(
               children: [
                 Expanded(
                   child: DropdownButtonFormField<String>(
+                    isExpanded: false,
+                    isDense: true,
                     decoration: InputDecoration(
-                      hintText: 'Gender',
-                      hintStyle: const TextStyle(
-                        color: Colors.grey,
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
                       contentPadding: EdgeInsets.symmetric(
-                        vertical: Dimensions.screenHeight / 62.133,
-                        horizontal: Dimensions.screenWidth / 21.5,
+                          horizontal: Dimensions.width20,
+                          vertical: Dimensions.height10),
+                      hintText: '',
+                      hintStyle: TextStyle(
+                        fontSize: Dimensions.font16,
+                        fontWeight: FontWeight.w300,
+                        color: AppColors.text.withOpacity(0.5),
                       ),
                       border: OutlineInputBorder(
                         borderSide: BorderSide(
-                          width: Dimensions.screenWidth / 430,
-                          color: AppColors.mainPurple,
+                          width: Dimensions.width5 / Dimensions.width10,
+                          color: AppColors.primaryColor,
                         ),
-                        borderRadius: BorderRadius.circular(
-                          Dimensions.screenHeight / 62.133,
-                        ),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius10),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          width: Dimensions.screenWidth / 286.667,
-                          color: AppColors.mainPurple,
+                          width: Dimensions.width5 / Dimensions.width10,
+                          color: AppColors.primaryColor,
                         ),
-                        borderRadius: BorderRadius.circular(
-                          Dimensions.screenHeight / 62.133,
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius10),
+                      ),
+                    ),
+                    hint: Center(
+                      child: Text(
+                        'Select Gender',
+                        style: TextStyle(
+                          fontSize: Dimensions.font16,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.black.withOpacity(0.4),
                         ),
                       ),
                     ),
                     items: [
                       'Male',
                       'Female',
-                      'Neutral',
-                      'Custom',
+                      'Non-binary',
+                      'Other',
                     ].map((gender) {
                       return DropdownMenuItem(
                         value: gender,
@@ -338,176 +354,130 @@ class UpdateInfo extends StatelessWidget {
                     onChanged: onGenderChanged,
                   ),
                 ),
-                SizedBox(width: Dimensions.screenWidth / 21.5),
+                SizedBox(width: Dimensions.width20),
                 Expanded(
-                  child: GestureDetector(
+                  child: TextField(
+                    controller: birthdayController,
                     onTap: () async {
-                      if (Platform.isIOS) {
-                        showModalBottomSheet(
-                          context: context,
-                          builder: (BuildContext builder) {
-                            return SizedBox(
-                              height: MediaQuery.of(context)
-                                      .copyWith()
-                                      .size
-                                      .height /
-                                  3,
-                              child: CupertinoDatePicker(
-                                initialDateTime: DateTime.now(),
-                                onDateTimeChanged: (DateTime newdate) {
-                                  onBirthdayChanged(newdate);
-                                  birthdayController.text =
-                                      DateFormat.yMd().format(newdate);
-                                },
-                                minimumYear: 1900,
-                                maximumDate: DateTime.now(),
-                                mode: CupertinoDatePickerMode.date,
-                              ),
-                            );
-                          },
-                        );
-                      } else {
-                        final DateTime? picked = await showDatePicker(
-                          context: context,
-                          initialDate: DateTime.now()
-                              .subtract(const Duration(days: 6570)),
-                          firstDate: DateTime(1900),
-                          lastDate: DateTime.now(),
-                          builder: (BuildContext context, Widget? child) {
-                            return Theme(
-                              data: ThemeData.light().copyWith(
-                                colorScheme: const ColorScheme.light(
-                                  primary: AppColors.mainPurple,
-                                ),
-                              ),
-                              child: child!,
-                            );
-                          },
-                        );
-                        if (picked != null) {
-                          onBirthdayChanged(picked);
-                          birthdayController.text =
-                              DateFormat.yMd().format(picked);
-                        }
+                      DateTime? pickedDate = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(1900),
+                        lastDate: DateTime.now(),
+                      );
+                      if (pickedDate != null) {
+                        String formattedDate =
+                            DateFormat('yyyy-MM-dd').format(pickedDate);
+                        birthdayController.text =
+                            formattedDate; // set output date to TextField value
+                        onBirthdayChanged(pickedDate);
                       }
                     },
-                    child: AbsorbPointer(
-                      child: TextField(
-                        controller: birthdayController,
-                        decoration: InputDecoration(
-                          hintText: 'Birthday',
-                          hintStyle: const TextStyle(
-                            color: Colors.grey,
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          contentPadding: EdgeInsets.symmetric(
-                            vertical: Dimensions.screenHeight / 62.133,
-                            horizontal: Dimensions.screenWidth / 21.5,
-                          ),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: Dimensions.screenWidth / 430,
-                              color: AppColors.mainPurple,
-                            ),
-                            borderRadius: BorderRadius.circular(
-                              Dimensions.screenHeight / 62.133,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: Dimensions.screenWidth / 286.667,
-                              color: AppColors.mainPurple,
-                            ),
-                            borderRadius: BorderRadius.circular(
-                              Dimensions.screenHeight / 62.133,
-                            ),
-                          ),
+                    style: TextStyle(
+                      fontSize: Dimensions.screenHeight / 62.133,
+                      color: AppColors.text,
+                    ),
+                    cursorColor: AppColors.primaryColor,
+                    readOnly: true,
+                    decoration: InputDecoration(
+                      alignLabelWithHint: true,
+                      labelText: 'Birthday',
+                      labelStyle: TextStyle(
+                        fontSize: Dimensions.font14,
+                        fontWeight: FontWeight.w300,
+                        color: AppColors.primaryColor,
+                      ),
+                      hintText: 'Select Birthday',
+                      hintStyle: TextStyle(
+                        fontSize: Dimensions.font14,
+                        fontWeight: FontWeight.w300,
+                        color: AppColors.text.withOpacity(0.5),
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          width: Dimensions.width5 / Dimensions.width10,
+                          color: AppColors.primaryColor,
                         ),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius10),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          width: Dimensions.width5 / Dimensions.width10,
+                          color: AppColors.primaryColor,
+                        ),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius10),
                       ),
                     ),
                   ),
                 ),
               ],
             ),
-          ),
-          // bio
-          Container(
-            margin: EdgeInsets.only(
-              top: Dimensions.screenHeight / 46.6,
-              left: Dimensions.screenWidth / 21.5,
-              right: Dimensions.screenWidth / 21.5,
-            ),
-            child: TextField(
-              maxLines: 6,
+            // bio
+            SizedBox(height: Dimensions.height20),
+            TextField(
               controller: bioController,
+              maxLines: 5,
+              style: TextStyle(
+                fontSize: Dimensions.screenHeight / 62.133,
+                color: AppColors.text,
+              ),
+              cursorColor: AppColors.primaryColor,
+              keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                hintText: 'Bio',
-                hintStyle: const TextStyle(
-                  color: Colors.grey,
+                alignLabelWithHint: true,
+                labelText: 'Bio',
+                labelStyle: TextStyle(
+                  fontSize: Dimensions.font14,
+                  fontWeight: FontWeight.w300,
+                  color: AppColors.primaryColor,
                 ),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: Dimensions.screenHeight / 62.133,
-                  horizontal: Dimensions.screenWidth / 21.5,
+                hintText: 'Tell us about yourself...',
+                hintStyle: TextStyle(
+                  fontSize: Dimensions.font14,
+                  fontWeight: FontWeight.w300,
+                  color: AppColors.text.withOpacity(0.5),
                 ),
                 border: OutlineInputBorder(
                   borderSide: BorderSide(
-                    width: Dimensions.screenWidth / 430,
-                    color: AppColors.mainPurple,
+                    width: Dimensions.width5 / Dimensions.width10,
+                    color: AppColors.primaryColor,
                   ),
-                  borderRadius: BorderRadius.circular(
-                    Dimensions.screenHeight / 62.133,
-                  ),
+                  borderRadius: BorderRadius.circular(Dimensions.radius10),
                 ),
-                focusedBorder: OutlineInputBorder(
+                enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    width: Dimensions.screenWidth / 286.667,
-                    color: AppColors.mainPurple,
+                    width: Dimensions.width5 / Dimensions.width10,
+                    color: AppColors.primaryColor,
                   ),
-                  borderRadius: BorderRadius.circular(
-                    Dimensions.screenHeight / 62.133,
+                  borderRadius: BorderRadius.circular(Dimensions.radius10),
+                ),
+              ),
+            ),
+            SizedBox(height: Dimensions.height20),
+            // submit button
+            Container(
+              width: double.infinity,
+              height: Dimensions.height50,
+              decoration: BoxDecoration(
+                color: AppColors.primaryColor,
+                borderRadius: BorderRadius.circular(Dimensions.radius10),
+              ),
+              child: TextButton(
+                onPressed: onSubmit,
+                child: Text(
+                  'Update Info',
+                  style: TextStyle(
+                    fontSize: Dimensions.font16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
               ),
             ),
-          ),
-          // submit btn
-          Container(
-            margin: EdgeInsets.only(
-              top: Dimensions.screenHeight / 46.6,
-              left: Dimensions.screenWidth / 21.5,
-              right: Dimensions.screenWidth / 21.5,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: onSubmit,
-                  child: Container(
-                    width: Dimensions.screenWidth / 2.15,
-                    height: Dimensions.screenHeight / 18.64,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppColors.lilacPurple,
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'Submit',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

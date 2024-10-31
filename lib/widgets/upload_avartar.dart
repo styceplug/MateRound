@@ -94,7 +94,7 @@ class _UploadAvatarState extends State<UploadAvatar> {
             decoration: BoxDecoration(
               border: Border.all(color: Colors.grey),
               borderRadius: BorderRadius.circular(10),
-              color: AppColors.lilacPurple,
+              color: AppColors.primaryColor,
             ),
             child: const Center(
               child: Text(

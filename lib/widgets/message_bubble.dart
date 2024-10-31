@@ -29,7 +29,7 @@ class MessageBubble extends StatelessWidget {
               horizontal: Dimensions.screenWidth / 53.75,
             ),
             child: CircleAvatar(
-              backgroundColor: AppColors.greyPurple,
+              backgroundColor: AppColors.primaryColor,
               foregroundImage: NetworkImage(profileImageUrl!),
             ),
           ),
@@ -47,7 +47,7 @@ class MessageBubble extends StatelessWidget {
                     BoxConstraints(maxWidth: Dimensions.screenWidth / 1.564),
                 decoration: BoxDecoration(
                   color:
-                      isReceiver ? AppColors.greyPurple : AppColors.lilacPurple,
+                      isReceiver ? AppColors.primaryColor : AppColors.secondaryColor,
                   borderRadius:
                       BorderRadius.circular(Dimensions.screenHeight / 93.2),
                 ),
@@ -65,7 +65,7 @@ class MessageBubble extends StatelessWidget {
                 date,
                 style: const TextStyle(
                   fontSize: 12,
-                  color: AppColors.greyLowPurple,
+                  color: AppColors.primaryColor,
                 ),
               ),
             ],

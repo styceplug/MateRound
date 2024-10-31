@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:mate_round/screens/chat_screen.dart';
-import 'package:mate_round/screens/complete_profile.dart';
+import 'package:mate_round/screens/auth_screens/complete_profile.dart';
 import 'package:mate_round/screens/create_account.dart';
 import 'package:mate_round/screens/disliked_people.dart';
 import 'package:mate_round/screens/dummy_splah.dart';
@@ -8,18 +8,19 @@ import 'package:mate_round/screens/expectations.dart';
 import 'package:mate_round/screens/forgot_password_screen.dart';
 import 'package:mate_round/screens/get_premium.dart';
 import 'package:mate_round/screens/home_screen.dart';
-import 'package:mate_round/screens/join_now.dart';
+import 'package:mate_round/screens/auth_screens/join_now.dart';
 import 'package:mate_round/screens/liked_me.dart';
 import 'package:mate_round/screens/liked_people.dart';
-import 'package:mate_round/screens/login.dart';
+import 'package:mate_round/screens/auth_screens/login.dart';
 import 'package:mate_round/screens/menu_screen.dart';
 import 'package:mate_round/screens/messages.dart';
 import 'package:mate_round/screens/my_profile.dart';
 import 'package:mate_round/screens/profile_detail.dart';
-import 'package:mate_round/screens/splash_screen.dart';
+import 'package:mate_round/screens/splash_screen/splash_screen.dart';
 import 'package:mate_round/screens/video_call_screen.dart';
 import 'package:mate_round/screens/visitors.dart';
 import 'package:mate_round/screens/welcome.dart';
+import 'package:mate_round/widgets/floating_bar.dart';
 
 class AppRoutes {
   static const String splashScreen = '/splash-screen';
@@ -42,6 +43,7 @@ class AppRoutes {
   static const String premium = '/get-premium';
   static const String dummySplash = '/dummy-splash';
   static const String forgotPassword = '/forgot-password';
+  static const String floatingBar = '/floating-bar';
 
   static String getSplashScreen() => '$splashScreen';
 
@@ -85,6 +87,8 @@ class AppRoutes {
   static String getDummySplash() => '$dummySplash';
 
   static String getForgotPassword() => '$forgotPassword';
+
+  static String getFloatingBar() => '$floatingBar';
 
   static final routes = [
     GetPage(
@@ -236,6 +240,13 @@ class AppRoutes {
       name: forgotPassword,
       page: () {
         return const ForgotPassword();
+      },
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: floatingBar,
+      page: () {
+        return const FloatingBar();
       },
       transition: Transition.fadeIn,
     ),

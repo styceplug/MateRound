@@ -46,8 +46,8 @@ class _ProfileDetailState extends State<ProfileDetail> {
       onCancel: () {
         // Get.back();
       },
-      buttonColor: AppColors.lilacPurple,
-      cancelTextColor: AppColors.lilacPurple,
+      buttonColor: AppColors.primaryColor,
+      cancelTextColor: AppColors.primaryColor,
       confirmTextColor: Colors.white,
     );
   }
@@ -173,7 +173,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
           // background
           Container(
             decoration: const BoxDecoration(
-              color: AppColors.ppWhite,
+              color: AppColors.primaryColor,
             ),
           ),
           // content
@@ -284,7 +284,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: AppColors.lighterGold,
+                                color: AppColors.primaryColor,
                                 width: Dimensions.screenWidth / 86,
                                 style: BorderStyle.solid,
                               ),
@@ -323,7 +323,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
                                       Dimensions.screenHeight / 93.2 * 4),
                                   border: Border.all(
                                     width: Dimensions.screenWidth / 430 / 2,
-                                    color: AppColors.lilacPurple,
+                                    color: AppColors.primaryColor,
                                   )),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -348,14 +348,14 @@ class _ProfileDetailState extends State<ProfileDetail> {
                                         color: Colors.white,
                                         border: Border.all(
                                           width: 2,
-                                          color: AppColors.lilacPurple,
+                                          color: AppColors.primaryColor,
                                         ),
                                       ),
                                       child: Icon(
                                         isDisLiked
                                             ? Icons.heart_broken
                                             : Icons.close,
-                                        color: AppColors.lilacPurple,
+                                        color: AppColors.primaryColor,
                                         size: Dimensions.screenHeight /
                                             31.067 /
                                             1.25,
@@ -385,14 +385,14 @@ class _ProfileDetailState extends State<ProfileDetail> {
                                         color: Colors.white,
                                         border: Border.all(
                                           width: 2,
-                                          color: AppColors.lilacPurple,
+                                          color: AppColors.primaryColor,
                                         ),
                                       ),
                                       child: Icon(
                                         isLiked
                                             ? Icons.favorite
                                             : Icons.favorite_outline,
-                                        color: AppColors.lilacPurple,
+                                        color: AppColors.primaryColor,
                                         size: Dimensions.screenHeight /
                                             31.067 /
                                             1.25,
@@ -424,12 +424,12 @@ class _ProfileDetailState extends State<ProfileDetail> {
                                         color: Colors.white,
                                         border: Border.all(
                                           width: 2,
-                                          color: AppColors.lilacPurple,
+                                          color: AppColors.primaryColor,
                                         ),
                                       ),
                                       child: Icon(
                                         isFriendSent ? Icons.person_remove : Icons.person_add,
-                                        color: AppColors.lilacPurple,
+                                        color: AppColors.primaryColor,
                                         size: Dimensions.screenHeight /
                                             31.067 /
                                             1.25,
@@ -454,12 +454,12 @@ class _ProfileDetailState extends State<ProfileDetail> {
                                         color: Colors.white,
                                         border: Border.all(
                                           width: 2,
-                                          color: AppColors.lilacPurple,
+                                          color: AppColors.primaryColor,
                                         ),
                                       ),
                                       child: Icon(
                                         Icons.message_outlined,
-                                        color: AppColors.lilacPurple,
+                                        color: AppColors.primaryColor,
                                         size: Dimensions.screenHeight /
                                             31.067 /
                                             1.25,
@@ -484,12 +484,12 @@ class _ProfileDetailState extends State<ProfileDetail> {
                                         color: Colors.white,
                                         border: Border.all(
                                           width: 2,
-                                          color: AppColors.lilacPurple,
+                                          color: AppColors.primaryColor,
                                         ),
                                       ),
                                       child: Icon(
                                         Icons.warning_amber_outlined,
-                                        color: AppColors.lilacPurple,
+                                        color: AppColors.primaryColor,
                                         size: Dimensions.screenHeight /
                                             31.067 /
                                             1.25,
@@ -566,7 +566,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
                                         Dimensions.screenHeight / 93.2),
                                     border: Border.all(
                                       width: 0.5,
-                                      color: AppColors.greyLowPurple,
+                                      color: AppColors.primaryColor,
                                     ),
                                   ),
                                   //about
@@ -622,7 +622,7 @@ class ProfileItem extends StatelessWidget {
           value,
           style: TextStyle(
             fontSize: Dimensions.screenHeight / 51.778,
-            color: AppColors.lilacPurple,
+            color: AppColors.primaryColor,
           ),
         ),
       ],

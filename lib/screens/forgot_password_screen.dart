@@ -31,8 +31,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               gradient: LinearGradient(
                 colors: [
                   AppColors.whiteColor,
-                  AppColors.gWhite,
-                  AppColors.gWhite,
+                  AppColors.primaryColor,
+                  AppColors.primaryColor,
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -101,7 +101,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           fontSize: Dimensions.screenHeight / 62.133,
                           color: Colors.black,
                         ),
-                        cursorColor: AppColors.mainPurple,
+                        cursorColor: AppColors.primaryColor,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           filled: true,
@@ -117,7 +117,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
                               width: Dimensions.screenWidth / 430,
-                              color: AppColors.mainPurple,
+                              color: AppColors.primaryColor,
                             ),
                             borderRadius: BorderRadius.circular(
                                 Dimensions.screenHeight / 62.133),
@@ -125,7 +125,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               width: Dimensions.screenWidth / 286.667,
-                              color: AppColors.mainPurple,
+                              color: AppColors.primaryColor,
                             ),
                             borderRadius: BorderRadius.circular(
                                 Dimensions.screenHeight / 62.133),
@@ -147,7 +147,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       top: Dimensions.screenHeight / 93.2,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.mainPurple,
+                      color: AppColors.primaryColor,
                       borderRadius: BorderRadius.circular(
                           Dimensions.screenHeight / 62.133),
                     ),

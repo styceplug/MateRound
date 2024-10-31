@@ -56,7 +56,7 @@ class _MessagesState extends State<Messages> with WidgetsBindingObserver {
             children: [
               Container(
                 decoration: const BoxDecoration(
-                  color: AppColors.ppWhite,
+                  color: AppColors.primaryColor,
                 ),
               ),
               SizedBox(

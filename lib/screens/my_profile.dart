@@ -232,7 +232,7 @@ class _MyProfileState extends State<MyProfile> {
           // background
           Container(
             decoration: const BoxDecoration(
-              color: AppColors.ppWhite,
+              color: AppColors.backgroundWhite,
             ),
           ),
           SingleChildScrollView(
@@ -331,7 +331,7 @@ class _MyProfileState extends State<MyProfile> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: AppColors.lighterGold,
+                            color: AppColors.primaryColor,
                             width: Dimensions.screenWidth / 86,
                             style: BorderStyle.solid,
                           ),
@@ -389,7 +389,7 @@ class _MyProfileState extends State<MyProfile> {
                                   border: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       width: Dimensions.screenWidth / 430,
-                                      color: AppColors.mainPurple,
+                                      color: AppColors.primaryColor,
                                     ),
                                     borderRadius: BorderRadius.circular(
                                       Dimensions.screenHeight / 62.133,
@@ -398,7 +398,7 @@ class _MyProfileState extends State<MyProfile> {
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       width: Dimensions.screenWidth / 286.667,
-                                      color: AppColors.mainPurple,
+                                      color: AppColors.primaryColor,
                                     ),
                                     borderRadius: BorderRadius.circular(
                                       Dimensions.screenHeight / 62.133,
@@ -425,7 +425,7 @@ class _MyProfileState extends State<MyProfile> {
                                   border: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       width: Dimensions.screenWidth / 430,
-                                      color: AppColors.mainPurple,
+                                      color: AppColors.primaryColor,
                                     ),
                                     borderRadius: BorderRadius.circular(
                                       Dimensions.screenHeight / 62.133,
@@ -434,7 +434,7 @@ class _MyProfileState extends State<MyProfile> {
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       width: Dimensions.screenWidth / 286.667,
-                                      color: AppColors.mainPurple,
+                                      color: AppColors.primaryColor,
                                     ),
                                     borderRadius: BorderRadius.circular(
                                       Dimensions.screenHeight / 62.133,
@@ -469,7 +469,7 @@ class _MyProfileState extends State<MyProfile> {
                             border: OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: Dimensions.screenWidth / 430,
-                                color: AppColors.mainPurple,
+                                color: AppColors.primaryColor,
                               ),
                               borderRadius: BorderRadius.circular(
                                 Dimensions.screenHeight / 62.133,
@@ -478,7 +478,7 @@ class _MyProfileState extends State<MyProfile> {
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: Dimensions.screenWidth / 286.667,
-                                color: AppColors.mainPurple,
+                                color: AppColors.primaryColor,
                               ),
                               borderRadius: BorderRadius.circular(
                                 Dimensions.screenHeight / 62.133,
@@ -526,7 +526,7 @@ class _MyProfileState extends State<MyProfile> {
                                   border: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       width: Dimensions.screenWidth / 430,
-                                      color: AppColors.mainPurple,
+                                      color: AppColors.primaryColor,
                                     ),
                                     borderRadius: BorderRadius.circular(
                                       Dimensions.screenHeight / 62.133,
@@ -535,7 +535,7 @@ class _MyProfileState extends State<MyProfile> {
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       width: Dimensions.screenWidth / 286.667,
-                                      color: AppColors.mainPurple,
+                                      color: AppColors.primaryColor,
                                     ),
                                     borderRadius: BorderRadius.circular(
                                       Dimensions.screenHeight / 62.133,
@@ -579,7 +579,7 @@ class _MyProfileState extends State<MyProfile> {
                                   border: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       width: Dimensions.screenWidth / 430,
-                                      color: AppColors.mainPurple,
+                                      color: AppColors.primaryColor,
                                     ),
                                     borderRadius: BorderRadius.circular(
                                       Dimensions.screenHeight / 62.133,
@@ -588,7 +588,7 @@ class _MyProfileState extends State<MyProfile> {
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       width: Dimensions.screenWidth / 286.667,
-                                      color: AppColors.mainPurple,
+                                      color: AppColors.primaryColor,
                                     ),
                                     borderRadius: BorderRadius.circular(
                                       Dimensions.screenHeight / 62.133,
@@ -644,7 +644,7 @@ class _MyProfileState extends State<MyProfile> {
                                   border: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       width: Dimensions.screenWidth / 430,
-                                      color: AppColors.mainPurple,
+                                      color: AppColors.primaryColor,
                                     ),
                                     borderRadius: BorderRadius.circular(
                                       Dimensions.screenHeight / 62.133,
@@ -653,7 +653,7 @@ class _MyProfileState extends State<MyProfile> {
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       width: Dimensions.screenWidth / 286.667,
-                                      color: AppColors.mainPurple,
+                                      color: AppColors.primaryColor,
                                     ),
                                     borderRadius: BorderRadius.circular(
                                       Dimensions.screenHeight / 62.133,
@@ -725,7 +725,7 @@ class _MyProfileState extends State<MyProfile> {
                                         return Theme(
                                           data: ThemeData.light().copyWith(
                                             colorScheme: const ColorScheme.light(
-                                              primary: AppColors.mainPurple,
+                                              primary: AppColors.primaryColor,
                                             ),
                                           ),
                                           child: child!,
@@ -761,7 +761,7 @@ class _MyProfileState extends State<MyProfile> {
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           width: Dimensions.screenWidth / 430,
-                                          color: AppColors.mainPurple,
+                                          color: AppColors.primaryColor,
                                         ),
                                         borderRadius: BorderRadius.circular(
                                           Dimensions.screenHeight / 62.133,
@@ -770,7 +770,7 @@ class _MyProfileState extends State<MyProfile> {
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           width: Dimensions.screenWidth / 286.667,
-                                          color: AppColors.mainPurple,
+                                          color: AppColors.primaryColor,
                                         ),
                                         borderRadius: BorderRadius.circular(
                                           Dimensions.screenHeight / 62.133,
@@ -808,7 +808,7 @@ class _MyProfileState extends State<MyProfile> {
                             border: OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: Dimensions.screenWidth / 430,
-                                color: AppColors.mainPurple,
+                                color: AppColors.primaryColor,
                               ),
                               borderRadius: BorderRadius.circular(
                                 Dimensions.screenHeight / 62.133,
@@ -817,7 +817,7 @@ class _MyProfileState extends State<MyProfile> {
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: Dimensions.screenWidth / 286.667,
-                                color: AppColors.mainPurple,
+                                color: AppColors.primaryColor,
                               ),
                               borderRadius: BorderRadius.circular(
                                 Dimensions.screenHeight / 62.133,
@@ -844,7 +844,7 @@ class _MyProfileState extends State<MyProfile> {
                                 decoration: BoxDecoration(
                                   border: Border.all(color: Colors.grey),
                                   borderRadius: BorderRadius.circular(10),
-                                  color: AppColors.lilacPurple,
+                                  color: AppColors.primaryColor,
                                 ),
                                 child:  Center(
                                   child: Text(

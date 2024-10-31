@@ -103,7 +103,7 @@ class _ExpectationsState extends State<Expectations>
           _isLoading = false;
         });
 
-        Get.offNamed(AppRoutes.getHomeScreen());
+        Get.offNamed(AppRoutes.getFloatingBar());
       } else {
         // Get.snackbar('Error', response['message']);
         setState(() {
@@ -127,7 +127,7 @@ class _ExpectationsState extends State<Expectations>
       body: Stack(
         children: [
           Container(
-            color: AppColors.ppWhite,
+            color: AppColors.primaryColor,
             child: Container(
               margin: EdgeInsets.only(
                 left: Dimensions.screenWidth / 21.5,
@@ -346,7 +346,7 @@ class _ExpectationsState extends State<Expectations>
                         top: Dimensions.screenHeight / 93.2,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.lilacPurple,
+                        color: AppColors.primaryColor,
                         borderRadius: BorderRadius.circular(
                             Dimensions.screenHeight / 62.133),
                       ),
@@ -414,7 +414,7 @@ class ProgressBar extends StatelessWidget {
           width: getWidth(context),
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [AppColors.darkGreen, AppColors.lightGreen],
+              colors: [AppColors.primaryColor, AppColors.accentColor],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
             ),

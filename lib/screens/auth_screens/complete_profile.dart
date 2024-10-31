@@ -292,39 +292,23 @@ class _CompleteProfileState extends State<CompleteProfile> {
       body: Stack(
         children: [
           Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  AppColors.whiteColor,
-                  AppColors.gWhite,
-                  AppColors.gWhite,
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
+            decoration: BoxDecoration(
+              color: AppColors.backgroundWhite,
             ),
           ),
           Column(
             children: [
               // top space
               SizedBox(
-                height: Dimensions.screenHeight / 18.64,
+                height: Dimensions.height76,
               ),
               // the app logo
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: Dimensions.screenHeight / 9.32,
-                    width: Dimensions.screenWidth / 4.3,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/logo.png'),
-                      ),
-                    ),
-                  ),
-                ],
+              Text(
+                'MATE AROUND',
+                style: TextStyle(
+                    fontSize: Dimensions.font20, fontWeight: FontWeight.w800,fontFamily: 'Poppins'),
               ),
+              SizedBox(height: Dimensions.height30),
               // step indicators
               StepIndicator(currentStep: currentStep),
               Expanded(
@@ -379,7 +363,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
               ),
               _isLoading
                   ? const CircularProgressIndicator(
-                      color: AppColors.lilacPurple,
+                      color: AppColors.primaryColor,
                     )
                   : const SizedBox.shrink(),
               // back and forward buttons
@@ -400,7 +384,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                               Dimensions.screenHeight / 93.2),
-                          color: AppColors.greyPurple,
+                          color: AppColors.orangeBtn,
                         ),
                         child: Center(
                           child: Text(
@@ -426,7 +410,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(
                                     Dimensions.screenHeight / 93.2),
-                                color: AppColors.lilacPurple,
+                                color: AppColors.blueBtn,
                               ),
                               child: Center(
                                 child: Text(

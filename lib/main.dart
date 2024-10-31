@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Materound',
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.getDummySplash(),
+      initialRoute: AppRoutes.splashScreen,
       getPages: AppRoutes.routes,
       builder: (_, child) => _Unfocus(child: child!),
     );

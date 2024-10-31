@@ -104,7 +104,7 @@ class _ChatScreenState extends State<ChatScreen> {
             icon: const Icon(Icons.person),
           ),
         ],
-        backgroundColor: AppColors.deepBlack,
+        backgroundColor: AppColors.text,
         centerTitle: true,
         elevation: 0,
       ),

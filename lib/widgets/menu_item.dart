@@ -37,7 +37,7 @@ class MenuItem extends StatelessWidget {
                 horizontal: Dimensions.screenWidth / 43,
               ),
               decoration: const BoxDecoration(
-                color: AppColors.pink2,
+                color: AppColors.primaryColor,
                 shape: BoxShape.circle,
               ),
               child: isIcon != null && isIcon == true ? Icon(icon!): img != null

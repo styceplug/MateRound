@@ -21,7 +21,7 @@ class _PayPalWebViewState extends State<PayPalWebView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('PayPal Payment'),
-        backgroundColor: AppColors.lilacPurple,
+        backgroundColor: AppColors.primaryColor,
         titleTextStyle: const TextStyle(color: Colors.white),
         leading: IconButton(
           icon: const Icon(Icons.close),

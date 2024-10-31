@@ -52,7 +52,7 @@ class _LikedPeopleState extends State<LikedPeople> {
           // background
           Container(
             decoration: const BoxDecoration(
-              color: AppColors.ppWhite,
+              color: AppColors.primaryColor,
             ),
           ),
           // content
@@ -208,7 +208,7 @@ class _LikedPeopleState extends State<LikedPeople> {
                                       Dimensions.screenWidth / 8.6,
                                       decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: AppColors.lilacPurple,
+                                          color: AppColors.primaryColor,
                                           image: DecorationImage(
                                             image: NetworkImage(
                                               'https://materound.com/auth/${users[index]['avater']}',),

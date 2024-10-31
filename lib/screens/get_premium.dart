@@ -109,13 +109,13 @@ class _GetPremiumState extends State<GetPremium> {
         children: [
           Container(
             decoration: const BoxDecoration(
-              color: AppColors.ppWhite,
+              color: AppColors.primaryColor,
             ),
           ),
           Container(
             height: Dimensions.screenHeight,
             width: Dimensions.screenWidth,
-            color: AppColors.greyDarkPurple,
+            color: AppColors.primaryColor,
             child: Column(
               children: [
                 SizedBox(

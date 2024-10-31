@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mate_round/routes/routes.dart';
+import 'package:mate_round/utils/colors.dart';
 import 'package:mate_round/utils/dimensions.dart';
 
 class Welcome extends StatelessWidget {
@@ -13,12 +14,7 @@ class Welcome extends StatelessWidget {
         children: [
           Container(
             decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  'assets/images/bg2.jpg',
-                ),
-                fit: BoxFit.cover,
-              ),
+              color: AppColors.primaryColor,
             ),
             child: Column(
               children: [
@@ -30,60 +26,48 @@ class Welcome extends StatelessWidget {
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(
-                        'assets/images/mtmt.png',
+                        'assets/images/logo.png',
                       ),
                     ),
                   ),
                 ),
-                Container(
-                  height: Dimensions.screenHeight / 21.3,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                        'assets/images/search.png',
-                      ),
-                    ),
-                  ),
+                SizedBox(height: Dimensions.height20),
+                Text(
+                  'Search, Chat, Meet & Date',
+                  style: TextStyle(
+                      color: AppColors.whiteColor,
+                      fontSize: Dimensions.font20,
+                      fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
                   height: Dimensions.screenHeight / 3.408,
                 ),
                 Container(
-                  height: Dimensions.screenHeight / (932 / 70),
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                        'assets/images/ff.png',
-                      ),
-                    ),
+                  padding: EdgeInsets.symmetric(horizontal: Dimensions.width30),
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    'Find Your Perfect soul mate near you!!!',
+                    style: TextStyle(
+                        color: AppColors.whiteColor,
+                        fontSize: Dimensions.font30,
+                        fontWeight: FontWeight.w800),
                   ),
                 ),
-                Container(
-                  height: Dimensions.screenHeight / 85.2,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                        'assets/images/line22.png',
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: Dimensions.screenHeight / 34.08,
-                ),
+                SizedBox(height: Dimensions.height20*2),
+
                 GestureDetector(
                   onTap: () {
                     Get.toNamed(AppRoutes.getLogin());
                   },
                   child: Container(
-                    height: Dimensions.screenHeight / 15.49,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'assets/images/rect.png',
-                        ),
-                      ),
+                    alignment: Alignment.center,
+                   height: Dimensions.height54,
+                    width: Dimensions.width100*3,
+                    decoration:  BoxDecoration(
+                      color: AppColors.greyBackground,
+                      borderRadius: BorderRadius.circular(Dimensions.radius20),
                     ),
+                    child: Text('Find Someone today',style: TextStyle(color: AppColors.primaryColor,fontSize: Dimensions.font18,fontWeight: FontWeight.w500),),
                   ),
                 ),
               ],

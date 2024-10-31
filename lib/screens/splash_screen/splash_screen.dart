@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(
-        seconds: 3,
+        seconds: 6,
       ),
     );
 
@@ -71,24 +71,24 @@ class _SplashScreenState extends State<SplashScreen>
         if (isProfileComplete == true || expectationsSet == true) {
           if (expectationsSet == true) {
             Timer(
-              const Duration(seconds: 4),
+              const Duration(seconds: 6),
               () => Get.offNamed(AppRoutes.getHomeScreen()),
             );
           } else {
             Timer(
-              const Duration(seconds: 4),
+              const Duration(seconds: 6),
               () => Get.offNamed(AppRoutes.getExpectations()),
             );
           }
         } else {
           Timer(
-            const Duration(seconds: 4),
+            const Duration(seconds: 6),
             () => Get.offNamed(AppRoutes.getCompleteProfile()),
           );
         }
       } else {
         Timer(
-          const Duration(seconds: 4),
+          const Duration(seconds: 6),
           () => Get.offNamed(AppRoutes.getJoinNow()),
         );
       }
@@ -101,24 +101,17 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              AppColors.whiteColor,
-              AppColors.gWhite,
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+        decoration:  const BoxDecoration(
+          color: AppColors.primaryColor,
           ),
-        ),
         child: Center(
           child: ScaleTransition(
             scale: _animation,
             child: Image.asset(
-              'assets/images/logo.png',
+              'assets/images/materound_animation.gif',
               fit: BoxFit.cover,
-              width: Dimensions.screenWidth / 1.72,
-              height: Dimensions.screenHeight / 3.728,
+             width: Dimensions.width100*3,
+              height: Dimensions.height100*3,
             ),
           ),
         ),

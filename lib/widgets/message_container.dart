@@ -47,7 +47,7 @@ class MessageContainer extends StatelessWidget {
               width: Dimensions.screenWidth / 8.6,
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: AppColors.lilacPurple,
+                  color: AppColors.primaryColor,
                   image: DecorationImage(
                     image: NetworkImage(image),
                     fit: BoxFit.contain,
